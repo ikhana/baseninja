@@ -16,7 +16,7 @@ const Video = ({
     addPaddingBottom = true,
     bgColor,
     bgImgSrc,
-    embedId,
+    videoSrc,
   },
 }) => {
   const bp500 = useMediaQuery("(min-width: 500px)");
@@ -55,7 +55,7 @@ const Video = ({
             ...(subTitle && {
               [isTitleBeforeSubTitle ? 'marginBottom' : 'marginTop']: '1rem',
             }),
-            textShadow: '-12px -12px 0 #1a237e, 12px -12px 0 #1a237e, -12px 12px 0 #1a237e, 12px 12px 0 #1a237e, -12px 0 0 #1a237e, 12px 0 0 #1a237e, 0 -12px 0 #1a237e, 0 12px 0 #1a237e',
+            textShadow: bp500 ? '-12px -12px 0 #1a237e, 12px -12px 0 #1a237e, -12px 12px 0 #1a237e, 12px 12px 0 #1a237e, -12px 0 0 #1a237e, 12px 0 0 #1a237e, 0 -12px 0 #1a237e, 0 12px 0 #1a237e' : '-6px -6px 0 #1a237e, 6px -6px 0 #1a237e, -6px 6px 0 #1a237e, 6px 6px 0 #1a237e, -6px 0 0 #1a237e, 6px 0 0 #1a237e, 0 -6px 0 #1a237e, 0 6px 0 #1a237e',
           }}
         >
           {titleBgColor ? (
@@ -79,7 +79,7 @@ const Video = ({
           sx={{
             fontSize: '4rem',
             textAlign: 'center',
-            textShadow: '-5px -5px 0 #1a237e, 5px -5px 0 #1a237e, -5px 5px 0 #1a237e, 5px 5px 0 #1a237e, -5px 0 0 #1a237e, 5px 0 0 #1a237e, 0 -5px 0 #1a237e, 0 5px 0 #1a237e',
+            textShadow: bp500 ? '-5px -5px 0 #1a237e, 5px -5px 0 #1a237e, -5px 5px 0 #1a237e, 5px 5px 0 #1a237e, -5px 0 0 #1a237e, 5px 0 0 #1a237e, 0 -5px 0 #1a237e, 0 5px 0 #1a237e' : '-3px -3px 0 #1a237e, 3px -3px 0 #1a237e, -3px 3px 0 #1a237e, 3px 3px 0 #1a237e, -3px 0 0 #1a237e, 3px 0 0 #1a237e, 0 -3px 0 #1a237e, 0 3px 0 #1a237e',
           }}
         >
           {subTitleBgColor ? (
@@ -102,20 +102,28 @@ const Video = ({
           maxWidth: '60rem',
           overflow: 'hidden',
           marginTop: '5.5rem',
-          '& iframe': {
+          '& video': {
             width: '100%',
-            aspectRatio: '16 / 9',
+            height: 'auto',
           },
         }}
       >
-        <iframe
-          src={`https://www.youtube.com/embed/${embedId}`}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title="Embedded youtube"
-        />
+        <video controls>
+          <source src={`/videos/${videoSrc}`} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </Box>
+      <Typography
+        variant="body1"
+        color="#ffffff"
+        sx={{
+          marginTop: '2rem',
+          textAlign: 'center',
+          textShadow: bp500 ? '-2px -2px 0 #1a237e, 2px -2px 0 #1a237e, -2px 2px 0 #1a237e, 2px 2px 0 #1a237e, -2px 0 0 #1a237e, 2px 0 0 #1a237e, 0 -2px 0 #1a237e, 0 2px 0 #1a237e' : '-1px -1px 0 #1a237e, 1px -1px 0 #1a237e, -1px 1px 0 #1a237e, 1px 1px 0 #1a237e, -1px 0 0 #1a237e, 1px 0 0 #1a237e, 0 -1px 0 #1a237e, 0 1px 0 #1a237e',
+        }}
+      >
+        Full Ninja Episode coming soon. Stay tuned!
+      </Typography>
     </Box>
   )
 };

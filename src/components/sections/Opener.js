@@ -14,7 +14,6 @@ const Opener = ({
     titleColorId,
     subTitle,
     subTitleColorId,
-    isTitleBeforeSubTitle,
     imgSrc,
     imgWidthPx,
     bgColor,
@@ -29,8 +28,6 @@ const Opener = ({
   const bp1000 = useMediaQuery("(min-width: 1000px)");
 
   const mainPaddingTop = bp500 ? '12rem' : '7.5rem';
-  const imgMarginHorizontalPx = 48;
-  const imgMarginBottomPx = 48;
 
   return (
     <Box
@@ -93,73 +90,45 @@ const Opener = ({
       <Box
         sx={{
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: (bp1000 && alignId !== 'CENTER') ? 'space-between' : 'center',
-          flexDirection: (bp1000 && alignId !== 'CENTER') ? alignId === 'TEXT_LEFT' ? 'row' : 'row-reverse' : 'column-reverse',
+          justifyContent: 'center',
           width: '100%',
           maxWidth: `${Math.round((appConfig.maxContainerWidthPx / 16) * 1000) / 1000}rem`,
           padding: `${mainPaddingTop} ${appConfig.containerGutterHorizontalRem}rem`,
         }}
       >
-        <Box
-          sx={{
-            width: '100%',
-            maxWidth: `${Math.round(((appConfig.maxContainerWidthPx - imgMarginHorizontalPx - (20 * 2) - imgWidthPx) / 16) * 1000) / 1000}rem`,
-          }}
-        >
-          <Box
+        {title && (
+          <Typography 
+            variant="h1"
+            color={titleColorId}
             sx={{
-              display: 'flex',
-              alignItems: (bp1000 && alignId !== 'CENTER') ? alignId === 'TEXT_LEFT' ? 'center' : 'flex-start' : 'center',
-              justifyContent: 'center',
-              flexDirection: isTitleBeforeSubTitle ? 'column' : 'column-reverse',
-              ...((bp1000 && alignId !== 'CENTER') && {
-                [alignId === 'TEXT_LEFT' ? 'paddingLeft' : 'paddingRight']: '2rem',
-              }),
+              textAlign: 'center',
+              marginBottom: '0.5rem',
+              textShadow: bp500 ? '-12px -12px 0 #1a237e, 12px -12px 0 #1a237e, -12px 12px 0 #1a237e, 12px 12px 0 #1a237e, -12px 0 0 #1a237e, 12px 0 0 #1a237e, 0 -12px 0 #1a237e, 0 12px 0 #1a237e' : '-6px -6px 0 #1a237e, 6px -6px 0 #1a237e, -6px 6px 0 #1a237e, 6px 6px 0 #1a237e, -6px 0 0 #1a237e, 6px 0 0 #1a237e, 0 -6px 0 #1a237e, 0 6px 0 #1a237e',
+              position: 'relative',
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '120%',
+                height: '120%',
+                borderRadius: '50% 50% 0 0 / 100% 100% 0 0',
+                border: '4px solid #1a237e',
+                zIndex: -1,
+              },
             }}
           >
-            {title && (
-              <Typography 
-                variant="h1"
-                color={titleColorId}
-                sx={{
-                  textAlign: (bp1000 && alignId !== 'CENTER') ? alignId === 'TEXT_LEFT' ? 'center' : 'left' : 'center',
-                  ...(subTitle && {
-                    [isTitleBeforeSubTitle ? 'marginBottom' : 'marginTop']: '1.5rem',
-                  }),
-                  textShadow: '-12px -12px 0 #1a237e, 12px -12px 0 #1a237e, -12px 12px 0 #1a237e, 12px 12px 0 #1a237e, -12px 0 0 #1a237e, 12px 0 0 #1a237e, 0 -12px 0 #1a237e, 0 12px 0 #1a237e',
-                }}
-              >
-                {title}
-              </Typography>
-            )}
-            {subTitle && (
-              <Typography 
-                variant="h2"
-                color={subTitleColorId}
-                sx={{
-                  fontSize: '4rem',
-                  textAlign: (bp1000 && alignId !== 'CENTER') ? alignId === 'TEXT_LEFT' ? 'center' : 'left' : 'center',
-                }}
-              >
-                {subTitle}
-              </Typography>
-            )}
-          </Box>
-        </Box>
+            {title}
+          </Typography>
+        )}
         <Box
           sx={{
             width: '100%',
             maxWidth: `${Math.round((imgWidthPx / 16) * 1000) / 1000}rem`,
-            ...((bp1000 && alignId === 'TEXT_LEFT') && {
-              marginLeft: `${Math.round((imgMarginHorizontalPx / 16) * 1000) / 1000}rem`,
-            }),
-            ...((bp1000 && alignId === 'TEXT_RIGHT') && {
-              marginRight: `${Math.round((imgMarginHorizontalPx / 16) * 1000) / 1000}rem`,
-            }),
-            ...((!bp1000 || alignId === 'CENTER') && {
-              marginBottom: `${Math.round((imgMarginBottomPx / 16) * 1000) / 1000}rem`,
-            }),
+            marginBottom: '0.5rem',
             '& img': {
               display: 'block',
               width: '100%',
@@ -170,6 +139,18 @@ const Opener = ({
         >
           <img src={`/images/${imgSrc}`} alt="" />
         </Box>
+        {subTitle && (
+          <Typography 
+            variant="h2"
+            color={subTitleColorId}
+            sx={{
+              fontSize: '4rem',
+              textAlign: 'center',
+            }}
+          >
+            {subTitle}
+          </Typography>
+        )}
       </Box>
     </Box>
   )

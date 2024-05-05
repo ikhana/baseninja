@@ -102,7 +102,7 @@ const AccordionComp = ({
           color={titleColorId}
           sx={{
             textAlign: 'center',
-            textShadow: '-12px -12px 0 #1a237e, 12px -12px 0 #1a237e, -12px 12px 0 #1a237e, 12px 12px 0 #1a237e, -12px 0 0 #1a237e, 12px 0 0 #1a237e, 0 -12px 0 #1a237e, 0 12px 0 #1a237e',
+            textShadow: bp500 ? '-12px -12px 0 #1a237e, 12px -12px 0 #1a237e, -12px 12px 0 #1a237e, 12px 12px 0 #1a237e, -12px 0 0 #1a237e, 12px 0 0 #1a237e, 0 -12px 0 #1a237e, 0 12px 0 #1a237e' : '-6px -6px 0 #1a237e, 6px -6px 0 #1a237e, -6px 6px 0 #1a237e, 6px 6px 0 #1a237e, -6px 0 0 #1a237e, 6px 0 0 #1a237e, 0 -6px 0 #1a237e, 0 6px 0 #1a237e',
           }}
         >
           {title}
@@ -137,7 +137,7 @@ const AccordionComp = ({
               color={titleColorId}
               sx={{
                 textAlign: 'center',
-                textShadow: '-5px -5px 0 #1a237e, 5px -5px 0 #1a237e, -5px 5px 0 #1a237e, 5px 5px 0 #1a237e, -5px 0 0 #1a237e, 5px 0 0 #1a237e, 0 -5px 0 #1a237e, 0 5px 0 #1a237e',
+                textShadow: bp500 ? '-5px -5px 0 #1a237e, 5px -5px 0 #1a237e, -5px 5px 0 #1a237e, 5px 5px 0 #1a237e, -5px 0 0 #1a237e, 5px 0 0 #1a237e, 0 -5px 0 #1a237e, 0 5px 0 #1a237e' : '-3px -3px 0 #1a237e, 3px -3px 0 #1a237e, -3px 3px 0 #1a237e, 3px 3px 0 #1a237e, -3px 0 0 #1a237e, 3px 0 0 #1a237e, 0 -3px 0 #1a237e, 0 3px 0 #1a237e',
                 marginBottom: '2rem',
               }}
             >
@@ -170,112 +170,112 @@ const AccordionComp = ({
               <AccordionDetails>
                 <Typography>
                   First,add some Ethereum ETH to your wallet. Next, visit <Link href="https://bridge.base.org" variant="link1" rel="noopener noreferrer" target="_blank">bridge.base.org</Link>, connect your wallet to the Ethereum network, then choose how much ETH you wish to bridge from Ethereum to BASE. Remember to leave enough for gas fees.<br /><br />Alternatively, you can send BASE ETH from your Coinbase CEX account directly to your private MetaMask wallet.
-</Typography>
-</AccordionDetails>
-</Accordion>
-<Accordion expanded={expanded === 'panelsushi4'} onChange={handleChange('panelsushi4')}>
-<AccordionSummary aria-controls="panelsushi4d-content" id="panelsushi4d-header">
-<Typography>#4 Swap ETH for $BNINJA</Typography>
-</AccordionSummary>
-<AccordionDetails>
-<Typography>
-Visit <Link href="https://app.uniswap.org/#/swap" variant="link1" rel="noopener noreferrer" target="_blank">Uniswap</Link>, connect your wallet to the BASE network, paste the $BNINJA contract address (listed below) into the "Select token" field, then swap some BASE ETH for $BNINJA.<br /><br />$BNINJA Contract: 0x1234567890
-</Typography>
-</AccordionDetails>
-</Accordion>
-<Accordion expanded={expanded === 'panelsushi5'} onChange={handleChange('panelsushi5')}>
-<AccordionSummary aria-controls="panelsushi5d-content" id="panelsushi5d-header">
-<Typography>#5 Display $BNINJA in your wallet</Typography>
-</AccordionSummary>
-<AccordionDetails>
-<Typography>
-Finally, for $BNINJA to show in your MetaMask wallet, simply paste the $BNINJA contract address (listed below) via MetaMask's "Tokens  Import tokens" option.<br /><br />$BNINJA Contract: 0x1234567890
-</Typography>
-</AccordionDetails>
-</Accordion>
-</Box>
-<Box
-sx={{
-...(bp900 && {
-width: '48%',
-}),
-...(!bp900 && {
-marginTop: '3.5rem',
-}),
-}}
->
-<Typography
-variant="h2"
-color={titleColorId}
-sx={{
-textAlign: 'center',
-textShadow: '-5px -5px 0 #1a237e, 5px -5px 0 #1a237e, -5px 5px 0 #1a237e, 5px 5px 0 #1a237e, -5px 0 0 #1a237e, 5px 0 0 #1a237e, 0 -5px 0 #1a237e, 0 5px 0 #1a237e',
-marginBottom: '2rem',
-}}
->
-Buy using Coinbase Wallet
-</Typography>
-<Accordion expanded={expanded === 'panelcoinbase1'} onChange={handleChange('panelcoinbase1')}>
-<AccordionSummary aria-controls="panelcoinbase1d-content" id="panelcoinbase1d-header">
-<Typography>#1 Install Coinbase Wallet</Typography>
-</AccordionSummary>
-<AccordionDetails>
-<Typography>
-Download & install the official Coinbase Wallet either from the app store on your phone or the <Link href="https://www.coinbase.com/en-gb/wallet" variant="link1" rel="noopener noreferrer" target="_blank">browser extension</Link> for desktop.
-</Typography>
-</AccordionDetails>
-</Accordion>
-<Accordion expanded={expanded === 'panelcoinbase3'} onChange={handleChange('panelcoinbase3')}>
-<AccordionSummary aria-controls="panelcoinbase3d-content" id="panelcoinbase3d-header">
-<Typography>#2 Add ETH to your wallet</Typography>
-</AccordionSummary>
-<AccordionDetails>
-<Typography>
-First, add some Ethereum ETH to your wallet. Next, visit <Link href="https://bridge.base.org" variant="link1" rel="noopener noreferrer" target="_blank">bridge.base.org</Link>, connect your wallet to the Ethereum network, then choose how much ETH you wish to bridge from Ethereum to BASE. Remember to leave enough for gas fees.<br /><br />Alternatively, you can send BASE ETH from your Coinbase CEX account directly to your Coinbase wallet.
-</Typography>
-</AccordionDetails>
-</Accordion>
-<Accordion expanded={expanded === 'panelcoinbase4'} onChange={handleChange('panelcoinbase4')}>
-<AccordionSummary aria-controls="panelcoinbase4d-content" id="panelcoinbase4d-header">
-<Typography>#3 Swap ETH for $BNINJA</Typography>
-</AccordionSummary>
-<AccordionDetails>
-<Typography>
-1. Load the Coinbase Wallet app.<br />
-2. Go to the Assets page.<br />
-3. Click Swap.<br />
-4. Select BASE as the chain.<br />
-5. Select ETH in the <em>From</em> option.<br />
-6. Paste the $BNINJA contract address (listed below) in the <em>To</em> option<br />
-7. Input the amount of ETH you wish to swap.<br /><br />$BNINJA Contract: 0x1234567890
-</Typography>
-</AccordionDetails>
-</Accordion>
-</Box>
-</Box>
-<Box
-sx={{
-width: '100%',
-maxWidth: '40rem',
-marginTop: '5.5rem',
-}}
->
-<Box
-component="video"
-controls="true"
-loop="true"
-poster="/images/buy-anim-poster.jpg"
-sx={{
-width: '100%',
-height: '80%',
-}}
->
-<source src="/videos/bninja-buy-anim.mp4" type="video/mp4" />
-</Box>
-</Box>
-</Box>
-</Box>
-);
-}
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'panelsushi4'} onChange={handleChange('panelsushi4')}>
+              <AccordionSummary aria-controls="panelsushi4d-content" id="panelsushi4d-header">
+                <Typography>#4 Swap ETH for $BNINJA</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Visit <Link href="https://app.uniswap.org/#/swap" variant="link1" rel="noopener noreferrer" target="_blank">Uniswap</Link>, connect your wallet to the BASE network, paste the $BNINJA contract address (listed below) into the "Select token" field, then swap some BASE ETH for $BNINJA.<br /><br />$BNINJA Contract: 0x1234567890
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'panelsushi5'} onChange={handleChange('panelsushi5')}>
+              <AccordionSummary aria-controls="panelsushi5d-content" id="panelsushi5d-header">
+                <Typography>#5 Display $BNINJA in your wallet</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Finally, for $BNINJA to show in your MetaMask wallet, simply paste the $BNINJA contract address (listed below) via MetaMask's "Tokens &gt; Import tokens" option.<br /><br />$BNINJA Contract: 0x1234567890
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Box>
+          <Box
+            sx={{
+              ...(bp900 && {
+                width: '48%',
+              }),
+              ...(!bp900 && {
+                marginTop: '3.5rem',
+              }),
+            }}
+          >
+            <Typography
+              variant="h2"
+              color={titleColorId}
+              sx={{
+                textAlign: 'center',
+                textShadow: bp500 ? '-5px -5px 0 #1a237e, 5px -5px 0 #1a237e, -5px 5px 0 #1a237e, 5px 5px 0 #1a237e, -5px 0 0 #1a237e, 5px 0 0 #1a237e, 0 -5px 0 #1a237e, 0 5px 0 #1a237e' : '-3px -3px 0 #1a237e, 3px -3px 0 #1a237e, -3px 3px 0 #1a237e, 3px 3px 0 #1a237e, -3px 0 0 #1a237e, 3px 0 0 #1a237e, 0 -3px 0 #1a237e, 0 3px 0 #1a237e',
+                marginBottom: '2rem',
+              }}
+            >
+              Buy using Coinbase Wallet
+            </Typography>
+            <Accordion expanded={expanded === 'panelcoinbase1'} onChange={handleChange('panelcoinbase1')}>
+              <AccordionSummary aria-controls="panelcoinbase1d-content" id="panelcoinbase1d-header">
+                <Typography>#1 Install Coinbase Wallet</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Download &amp; install the official Coinbase Wallet either from the app store on your phone or the <Link href="https://www.coinbase.com/en-gb/wallet" variant="link1" rel="noopener noreferrer" target="_blank">browser extension</Link> for desktop.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'panelcoinbase3'} onChange={handleChange('panelcoinbase3')}>
+              <AccordionSummary aria-controls="panelcoinbase3d-content" id="panelcoinbase3d-header">
+                <Typography>#2 Add ETH to your wallet</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  First, add some Ethereum ETH to your wallet. Next, visit <Link href="https://bridge.base.org" variant="link1" rel="noopener noreferrer" target="_blank">bridge.base.org</Link>, connect your wallet to the Ethereum network, then choose how much ETH you wish to bridge from Ethereum to BASE. Remember to leave enough for gas fees.<br /><br />Alternatively, you can send BASE ETH from your Coinbase CEX account directly to your Coinbase wallet.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'panelcoinbase4'} onChange={handleChange('panelcoinbase4')}>
+              <AccordionSummary aria-controls="panelcoinbase4d-content" id="panelcoinbase4d-header">
+                <Typography>#3 Swap ETH for $BNINJA</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  1. Load the Coinbase Wallet app.<br />
+                  2. Go to the Assets page.<br />
+                  3. Click Swap.<br />
+                  4. Select BASE as the chain.<br />
+                  5. Select ETH in the <em>From</em> option.<br />
+                  6. Paste the $BNINJA contract address (listed below) in the <em>To</em> option<br />
+                  7. Input the amount of ETH you wish to swap.<br /><br />$BNINJA Contract: 0x1234567890
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            width: '100%',
+            maxWidth: '40rem',
+            marginTop: '5.5rem',
+          }}
+        >
+          <Box
+            component="video"
+            controls="true"
+            loop="true"
+            poster="/images/videoposter.jpeg"
+            sx={{
+              width: '100%',
+              height: '80%',
+            }}
+          >
+            <source src="/videos/ninja2.mp4" type="video/mp4" />
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
 
 export default AccordionComp;

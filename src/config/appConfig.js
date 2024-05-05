@@ -53,7 +53,7 @@ const sections = [
       subTitleColorId: 'quaternary.main',
       isTitleBeforeSubTitle: true,
       imgSrc: 'Openergif.gif',
-      imgWidthPx: 500,
+      imgWidthPx: 600,
       bgColor: 'transparent',
       bgImgSrc: 'bg00.jpg',
       isBgImgVideoMask: true,
@@ -74,7 +74,7 @@ const sections = [
   {
     component: () => <TextImg config={{
       alignId: 'LEFT',
-      alignContent: 'center',
+      alignContent: 'flex-start',
       title: '',
       titleColorId: '',
       titleBgColor: '',
@@ -121,7 +121,7 @@ const sections = [
         'Together, we will harness the power of the blockchain and unleash the true potential of the Base Ninjas.',
         'In the shadows, we wait. In the shadows, we grow stronger. In the shadows, we prepare for the ultimate battle.',
       ],
-      imgSrc: 'ninjaGif2.gif',
+      imgSrc: 'ninjaGif3.gif',
       imgWidthPx: 400,
       bgColor: 'transparent',
       bgImgSrc: 'Desert.jpg',
@@ -164,7 +164,7 @@ const sections = [
     component: () => <TextImg config={{
       alignId: 'CENTER',
       alignContent: 'center',
-      title: 'Tokenomics'.toUpperCase(),
+      title: 'Ninjanomics'.toUpperCase(),
       titleColorId: '#ffffff',
       titleBgColor: '',
       subTitle: '',
@@ -224,8 +224,9 @@ const sections = [
       addPaddingBottom: true,
       bgColor: 'transparent',
       bgImgSrc: 'DANCE2.jpg',
-      embedId: 'your-youtube-embed-id',
+      videoSrc: 'ninja-episode-preview.mp4',
     }} />,
+    
   },
   {
     component: () => <Footer config={{

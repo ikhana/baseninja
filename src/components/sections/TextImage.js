@@ -63,7 +63,7 @@ const TextImg = ({
         <Box
           sx={{
             display: 'flex',
-            alignItems: (bp1000 && alignId !== 'CENTER') ? (alignId === 'TEXT_LEFT' && imgSrc) ? 'center' : 'flex-start' : 'center',
+            alignItems: (bp1000 && alignId !== 'CENTER') ? (alignId === 'TEXT_LEFT' && imgSrc) ? 'flex-start' : 'flex-start' : 'center',
             justifyContent: 'center',
             flexDirection: 'column',
             width: '100%',
@@ -75,7 +75,7 @@ const TextImg = ({
           <Box
             sx={{
               display: 'flex',
-              alignItems: (bp1000 && alignId !== 'CENTER') ? (alignId === 'TEXT_LEFT' && imgSrc) ? 'center' : 'flex-start' : 'center',
+              alignItems: (bp1000 && alignId !== 'CENTER') ? (alignId === 'TEXT_LEFT' && imgSrc) ? 'flex-start' : 'flex-start' : 'center',
               justifyContent: 'center',
               flexDirection: isTitleBeforeSubTitle ? 'column' : 'column-reverse',
               ...((bp1000 && imgSrc && alignId !== 'CENTER') && {
@@ -91,11 +91,11 @@ const TextImg = ({
                 variant="h1"
                 color={titleColorId}
                 sx={{
-                  textAlign: (bp1000 && alignId !== 'CENTER') ? (alignId === 'TEXT_LEFT' && imgSrc) ? 'center' : 'left' : 'center',
+                  textAlign: (bp1000 && alignId !== 'CENTER') ? (alignId === 'TEXT_LEFT' && imgSrc) ? 'left' : 'left' : 'center',
                   ...(subTitle && {
                     [isTitleBeforeSubTitle ? 'marginBottom' : 'marginTop']: '1rem',
                   }),
-                  textShadow: '-12px -12px 0 #1a237e, 12px -12px 0 #1a237e, -12px 12px 0 #1a237e, 12px 12px 0 #1a237e, -12px 0 0 #1a237e, 12px 0 0 #1a237e, 0 -12px 0 #1a237e, 0 12px 0 #1a237e',
+                  textShadow: bp500 ? '-12px -12px 0 #1a237e, 12px -12px 0 #1a237e, -12px 12px 0 #1a237e, 12px 12px 0 #1a237e, -12px 0 0 #1a237e, 12px 0 0 #1a237e, 0 -12px 0 #1a237e, 0 12px 0 #1a237e' : '-6px -6px 0 #1a237e, 6px -6px 0 #1a237e, -6px 6px 0 #1a237e, 6px 6px 0 #1a237e, -6px 0 0 #1a237e, 6px 0 0 #1a237e, 0 -6px 0 #1a237e, 0 6px 0 #1a237e',
                 }}
               >
                 {titleBgColor ? (
@@ -112,87 +112,88 @@ const TextImg = ({
                 ) : title}
               </Typography>
             )}
-            {subTitle && (
-              <Typography 
-                variant="h2"
-                color={subTitleColorId}
-                sx={{
-                  fontSize: '4rem',
-                  textAlign: (bp1000 && alignId !== 'CENTER') ? (alignId === 'TEXT_LEFT' && imgSrc) ? 'center' : 'left' : 'center',
-                  textShadow: '-5px -5px 0 #1a237e, 5px -5px 0 #1a237e, -5px 5px 0 #1a237e, 5px 5px 0 #1a237e, -5px 0 0 #1a237e, 5px 0 0 #1a237e, 0 -5px 0 #1a237e, 0 5px 0 #1a237e',
-                }}
-              >
-                {subTitleBgColor ? (
-                  <Box
-                    component="span"
-                    sx={{
-                      display: 'block',
-                      padding: !bp500 ? '0 0.325rem' : '0.625rem 1.5rem',
-                      backgroundColor: subTitleBgColor,
-                    }}
-                  >
-                    {subTitle}
-                  </Box>
-                ) : subTitle}
-              </Typography>
-            )}
-          </Box>
-          {paragraphs.length > 0 && (
-            <Box
-              sx={{
-                ...((bp1000 && imgSrc && alignId !== 'CENTER') && {
-                  [alignId === 'TEXT_LEFT' ? 'paddingLeft' : 'paddingRight']: '2rem',
-                }),
-                ...(!imgSrc && {
-                  maxWidth: `${Math.round(((appConfig.maxContainerWidthPx - 200 - imgMarginHorizontalPx - (20 * 2)) / 16) * 1000) / 1000}rem`,
-                }),
-                ...((bp1000 && !imgSrc) && {
-                  padding: '0 2rem',
-                }),
-              }}
-            >
-              {paragraphs.map((text, idx) => (
-                <Typography
-                  key={`item${idx}`}
-                  sx={{
-                    color: paragraphColor,
-                    textAlign: (bp1000 && alignId !== 'CENTER') ? (alignId === 'TEXT_LEFT' && imgSrc) ? 'center' : 'left' : 'center',
-                    marginTop: idx === 0 ? title ? '3.5rem' : '2.5rem' : '1.5rem',
-                  }}
-                  dangerouslySetInnerHTML={{__html: text}}
-                />
-              ))}
-            </Box>
-          )}
-        </Box>
-        {imgSrc && (
-          <Box
-            sx={{
-              width: '100%',
-              maxWidth: `${Math.round((imgWidthPx / 16) * 1000) / 1000}rem`,
-              ...((bp1000 && alignId === 'TEXT_LEFT') && {
-                marginLeft: `${Math.round((imgMarginHorizontalPx / 16) * 1000) / 1000}rem`,
-              }),
-              ...((bp1000 && alignId === 'TEXT_RIGHT') && {
-                marginRight: `${Math.round((imgMarginHorizontalPx / 16) * 1000) / 1000}rem`,
-              }),
-              ...((!bp1000 || alignId === 'CENTER') && {
-                marginBottom: `${Math.round((imgMarginBottomPx / 16) * 1000) / 1000}rem`,
-              }),
-              '& img': {
-                display: 'block',
-                width: '100%',
-                maxWidth: `${Math.round((imgWidthPx / 16) * 1000) / 1000}rem`,
-                height: 'auto',
-              }
-            }}
-          >
-            <img src={`/images/${imgSrc}`} alt="" />
-          </Box>
-        )}
+           {subTitle && (
+  <Typography 
+    variant="h2"
+    color={subTitleColorId}
+    sx={{
+      fontSize: '4rem',
+      textAlign: (bp1000 && alignId !== 'CENTER') ? (alignId === 'TEXT_LEFT' && imgSrc) ? 'left' : 'left' : 'center',
+      textShadow: bp500 ? '-5px -5px 0 #1a237e, 5px -5px 0 #1a237e, -5px 5px 0 #1a237e, 5px 5px 0 #1a237e, -5px 0 0 #1a237e, 5px 0 0 #1a237e, 0 -5px 0 #1a237e, 0 5px 0 #1a237e' : '-3px -3px 0 #1a237e, 3px -3px 0 #1a237e, -3px 3px 0 #1a237e, 3px 3px 0 #1a237e, -3px 0 0 #1a237e, 3px 0 0 #1a237e, 0 -3px 0 #1a237e, 0 3px 0 #1a237e',
+    }}
+  >
+    {subTitleBgColor ? (
+      <Box
+        component="span"
+        sx={{
+          display: 'block',
+          padding: !bp500 ? '0 0.325rem' : '0.625rem 1.5rem',
+          backgroundColor: subTitleBgColor,
+        }}
+      >
+        {subTitle}
       </Box>
-    </Box>
-  )
+    ) : subTitle}
+  </Typography>
+)}
+</Box>
+{paragraphs.length > 0 && (
+  <Box
+    sx={{
+      ...((bp1000 && imgSrc && alignId !== 'CENTER') && {
+        [alignId === 'TEXT_LEFT' ? 'paddingLeft' : 'paddingRight']: '2rem',
+      }),
+      ...(!imgSrc && {
+        maxWidth: `${Math.round(((appConfig.maxContainerWidthPx - 200 - imgMarginHorizontalPx - (20 * 2)) / 16) * 1000) / 1000}rem`,
+      }),
+      ...((bp1000 && !imgSrc) && {
+        padding: '0 2rem',
+      }),
+    }}
+  >
+    {paragraphs.map((text, idx) => (
+      <Typography
+        key={`item${idx}`}
+        sx={{
+          color: paragraphColor,
+          textAlign: (bp1000 && alignId !== 'CENTER') ? (alignId === 'TEXT_LEFT' && imgSrc) ? 'left' : 'left' : 'center',
+          marginTop: idx === 0 ? title ? '3.5rem' : '2.5rem' : '1.5rem',
+        }}
+        dangerouslySetInnerHTML={{__html: text}}
+      />
+    ))}
+  </Box>
+)}
+</Box>
+{imgSrc && (
+  <Box
+    sx={{
+      width: '100%',
+      maxWidth: `${Math.round((imgWidthPx / 16) * 1000) / 1000}rem`,
+      ...((bp1000 && alignId === 'TEXT_LEFT') && {
+        marginLeft: `${Math.round((imgMarginHorizontalPx / 16) * 1000) / 1000}rem`,
+      }),
+      ...((bp1000 && alignId === 'TEXT_RIGHT') && {
+        marginRight: `${Math.round((imgMarginHorizontalPx / 16) * 1000) / 1000}rem`,
+      }),
+      ...((!bp1000 || alignId === 'CENTER') && {
+        marginBottom: `${Math.round((imgMarginBottomPx / 16) * 1000) / 1000}rem`,
+      }),
+      '& img': {
+        display: 'block',
+        width: '100%',
+        maxWidth: `${Math.round((imgWidthPx / 16) * 1000) / 1000}rem`,
+        height: 'auto',
+      }
+    }}
+  >
+    <img src={`/images/${imgSrc}`} alt="" />
+  </Box>
+)}
+</Box>
+</Box>
+);
 };
 
 export default TextImg;
+
