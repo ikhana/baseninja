@@ -90,45 +90,64 @@ const Opener = ({
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: bp1000 ? 'row' : 'column',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           width: '100%',
           maxWidth: `${Math.round((appConfig.maxContainerWidthPx / 16) * 1000) / 1000}rem`,
           padding: `${mainPaddingTop} ${appConfig.containerGutterHorizontalRem}rem`,
         }}
       >
-        {title && (
-          <Typography 
-            variant="h1"
-            color={titleColorId}
-            sx={{
-              textAlign: 'center',
-              marginBottom: '0.5rem',
-              textShadow: bp500 ? '-12px -12px 0 #1a237e, 12px -12px 0 #1a237e, -12px 12px 0 #1a237e, 12px 12px 0 #1a237e, -12px 0 0 #1a237e, 12px 0 0 #1a237e, 0 -12px 0 #1a237e, 0 12px 0 #1a237e' : '-6px -6px 0 #1a237e, 6px -6px 0 #1a237e, -6px 6px 0 #1a237e, 6px 6px 0 #1a237e, -6px 0 0 #1a237e, 6px 0 0 #1a237e, 0 -6px 0 #1a237e, 0 6px 0 #1a237e',
-              position: 'relative',
-              '&::before': {
-                content: '""',
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '120%',
-                height: '120%',
-                borderRadius: '50% 50% 0 0 / 100% 100% 0 0',
-                border: '4px solid #1a237e',
-                zIndex: -1,
-              },
-            }}
-          >
-            {title}
-          </Typography>
-        )}
         <Box
           sx={{
-            width: '100%',
+            width: bp1000 ? '50%' : '100%',
+            marginRight: bp1000 ? '2rem' : 0,
+            marginBottom: bp1000 ? 0 : '2rem',
+          }}
+        >
+          {title && (
+            <Typography 
+              variant="h1"
+              color={titleColorId}
+              sx={{
+                textAlign: 'left',
+                marginBottom: '2.5rem',
+                textShadow: bp500 ? '-12px -12px 0 #1a237e, 12px -12px 0 #1a237e, -12px 12px 0 #1a237e, 12px 12px 0 #1a237e, -12px 0 0 #1a237e, 12px 0 0 #1a237e, 0 -12px 0 #1a237e, 0 12px 0 #1a237e' : '-6px -6px 0 #1a237e, 6px -6px 0 #1a237e, -6px 6px 0 #1a237e, 6px 6px 0 #1a237e, -6px 0 0 #1a237e, 6px 0 0 #1a237e, 0 -6px 0 #1a237e, 0 6px 0 #1a237e',
+                position: 'relative',
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '120%',
+                  height: '120%',
+                  borderRadius: '50% 50% 0 0 / 100% 100% 0 0',
+                  border: '4px solid #1a237e',
+                  zIndex: -1,
+                },
+              }}
+            >
+              {title}
+            </Typography>
+          )}
+          {subTitle && (
+            <Typography 
+              variant="h2"
+              color={subTitleColorId}
+              sx={{
+                fontSize: '4rem',
+                textAlign: 'left',
+              }}
+            >
+              {subTitle}
+            </Typography>
+          )}
+        </Box>
+        <Box
+          sx={{
+            width: bp1000 ? '50%' : '100%',
             maxWidth: `${Math.round((imgWidthPx / 16) * 1000) / 1000}rem`,
-            marginBottom: '0.5rem',
             '& img': {
               display: 'block',
               width: '100%',
@@ -139,18 +158,6 @@ const Opener = ({
         >
           <img src={`/images/${imgSrc}`} alt="" />
         </Box>
-        {subTitle && (
-          <Typography 
-            variant="h2"
-            color={subTitleColorId}
-            sx={{
-              fontSize: '4rem',
-              textAlign: 'center',
-            }}
-          >
-            {subTitle}
-          </Typography>
-        )}
       </Box>
     </Box>
   )

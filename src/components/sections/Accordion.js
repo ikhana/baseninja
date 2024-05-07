@@ -141,55 +141,55 @@ const AccordionComp = ({
                 marginBottom: '2rem',
               }}
             >
-              Buy using Uniswap
+              Buy on Pump.fun
             </Typography>
             <Accordion expanded={expanded === 'panelsushi1'} onChange={handleChange('panelsushi1')}>
               <AccordionSummary aria-controls="panelsushi1d-content" id="panelsushi1d-header">
-                <Typography>#1 Install MetaMask</Typography>
+                <Typography>#1 Visit Pump.fun</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Download &amp; install the official MetaMask wallet either from the app store on your phone or the <Link href="https://metamask.io/buy-crypto/" variant="link1" rel="noopener noreferrer" target="_blank">browser extension</Link> for desktop.
+                  Go to <Link href="https://pump.fun" variant="link1" rel="noopener noreferrer" target="_blank">Pump.fun</Link> in your web browser.
                 </Typography>
               </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'panelsushi2'} onChange={handleChange('panelsushi2')}>
               <AccordionSummary aria-controls="panelsushi2d-content" id="panelsushi2d-header">
-                <Typography>#2 Add the BASE network to MetaMask</Typography>
-              </AccordionSummary>
+                <Typography>#2 Connect your wallet </Typography>
+                </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Add the following network to MetaMask via "Settings &gt; Networks &gt; Add network":<br /><br />Network Name: Base<br />RPC Endpoint: https://mainnet.base.org/<br />Chain ID: 8453<br />Currency Symbol: ETH<br />Block Explorer: https://basescan.org
+                  Click on the "Connect Wallet" button and select your preferred wallet (e.g., Phantom, Solflare) to connect to the Solana network.
                 </Typography>
               </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'panelsushi3'} onChange={handleChange('panelsushi3')}>
               <AccordionSummary aria-controls="panelsushi3d-content" id="panelsushi3d-header">
-                <Typography>#3 Add ETH to your wallet</Typography>
+                <Typography>#3 Select $SNINJA</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  First,add some Ethereum ETH to your wallet. Next, visit <Link href="https://bridge.base.org" variant="link1" rel="noopener noreferrer" target="_blank">bridge.base.org</Link>, connect your wallet to the Ethereum network, then choose how much ETH you wish to bridge from Ethereum to BASE. Remember to leave enough for gas fees.<br /><br />Alternatively, you can send BASE ETH from your Coinbase CEX account directly to your private MetaMask wallet.
+                  From the list of available tokens on Pump.fun, find and select $SNINJA.
                 </Typography>
               </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'panelsushi4'} onChange={handleChange('panelsushi4')}>
               <AccordionSummary aria-controls="panelsushi4d-content" id="panelsushi4d-header">
-                <Typography>#4 Swap ETH for $BNINJA</Typography>
+                <Typography>#4 Enter the amount</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Visit <Link href="https://app.uniswap.org/#/swap" variant="link1" rel="noopener noreferrer" target="_blank">Uniswap</Link>, connect your wallet to the BASE network, paste the $BNINJA contract address (listed below) into the "Select token" field, then swap some BASE ETH for $BNINJA.<br /><br />$BNINJA Contract: 0x1234567890
+                  Enter the amount of SOL you want to spend or the amount of $SNINJA you want to purchase.
                 </Typography>
               </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'panelsushi5'} onChange={handleChange('panelsushi5')}>
               <AccordionSummary aria-controls="panelsushi5d-content" id="panelsushi5d-header">
-                <Typography>#5 Display $BNINJA in your wallet</Typography>
+                <Typography>#5 Confirm the transaction</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Finally, for $BNINJA to show in your MetaMask wallet, simply paste the $BNINJA contract address (listed below) via MetaMask's "Tokens &gt; Import tokens" option.<br /><br />$BNINJA Contract: 0x1234567890
+                  Review the transaction details, including the amount and any associated fees, then confirm the transaction in your connected wallet.
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -213,41 +213,65 @@ const AccordionComp = ({
                 marginBottom: '2rem',
               }}
             >
-              Buy using Coinbase Wallet
-            </Typography>
-            <Accordion expanded={expanded === 'panelcoinbase1'} onChange={handleChange('panelcoinbase1')}>
-              <AccordionSummary aria-controls="panelcoinbase1d-content" id="panelcoinbase1d-header">
-                <Typography>#1 Install Coinbase Wallet</Typography>
+             
+             </Typography>
+            <Accordion expanded={expanded === 'panelphantom1'} onChange={handleChange('panelphantom1')}>
+              <AccordionSummary aria-controls="panelphantom1d-content" id="panelphantom1d-header">
+                <Typography>#1 Install Phantom Wallet</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Download &amp; install the official Coinbase Wallet either from the app store on your phone or the <Link href="https://www.coinbase.com/en-gb/wallet" variant="link1" rel="noopener noreferrer" target="_blank">browser extension</Link> for desktop.
+                  Download and install the Phantom Wallet extension for your browser from the official website: <Link href="https://phantom.app/" variant="link1" rel="noopener noreferrer" target="_blank">https://phantom.app/</Link>
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            <Accordion expanded={expanded === 'panelcoinbase3'} onChange={handleChange('panelcoinbase3')}>
-              <AccordionSummary aria-controls="panelcoinbase3d-content" id="panelcoinbase3d-header">
-                <Typography>#2 Add ETH to your wallet</Typography>
+            <Accordion expanded={expanded === 'panelphantom2'} onChange={handleChange('panelphantom2')}>
+              <AccordionSummary aria-controls="panelphantom2d-content" id="panelphantom2d-header">
+                <Typography>#2 Fund your wallet</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  First, add some Ethereum ETH to your wallet. Next, visit <Link href="https://bridge.base.org" variant="link1" rel="noopener noreferrer" target="_blank">bridge.base.org</Link>, connect your wallet to the Ethereum network, then choose how much ETH you wish to bridge from Ethereum to BASE. Remember to leave enough for gas fees.<br /><br />Alternatively, you can send BASE ETH from your Coinbase CEX account directly to your Coinbase wallet.
+                  Add SOL to your Phantom Wallet by purchasing from an exchange or transferring from another wallet.
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            <Accordion expanded={expanded === 'panelcoinbase4'} onChange={handleChange('panelcoinbase4')}>
-              <AccordionSummary aria-controls="panelcoinbase4d-content" id="panelcoinbase4d-header">
-                <Typography>#3 Swap ETH for $BNINJA</Typography>
+            <Accordion expanded={expanded === 'panelphantom3'} onChange={handleChange('panelphantom3')}>
+              <AccordionSummary aria-controls="panelphantom3d-content" id="panelphantom3d-header">
+                <Typography>#3 Open the Phantom Wallet</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  1. Load the Coinbase Wallet app.<br />
-                  2. Go to the Assets page.<br />
-                  3. Click Swap.<br />
-                  4. Select BASE as the chain.<br />
-                  5. Select ETH in the <em>From</em> option.<br />
-                  6. Paste the $BNINJA contract address (listed below) in the <em>To</em> option<br />
-                  7. Input the amount of ETH you wish to swap.<br /><br />$BNINJA Contract: 0x1234567890
+                  Click on the Phantom Wallet extension icon in your browser to open the wallet interface.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'panelphantom4'} onChange={handleChange('panelphantom4')}>
+              <AccordionSummary aria-controls="panelphantom4d-content" id="panelphantom4d-header">
+                <Typography>#4 Go to the Swap tab</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Within the Phantom Wallet interface, navigate to the "Swap" tab.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'panelphantom5'} onChange={handleChange('panelphantom5')}>
+              <AccordionSummary aria-controls="panelphantom5d-content" id="panelphantom5d-header">
+                <Typography>#5 Select the trading pair</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Choose SOL as the "You Pay" token and enter the contract address of $SNINJA in the "You Receive" field. The $SNINJA contract address is: [insert contract address here]
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'panelphantom6'} onChange={handleChange('panelphantom6')}>
+              <AccordionSummary aria-controls="panelphantom6d-content" id="panelphantom6d-header">
+                <Typography>#6 Enter the amount and swap</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Enter the amount of SOL you want to swap for $SNINJA, then click on the "Swap" button. Review the transaction details and confirm the swap in your Phantom Wallet.
                 </Typography>
               </AccordionDetails>
             </Accordion>

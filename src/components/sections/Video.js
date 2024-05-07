@@ -17,6 +17,7 @@ const Video = ({
     bgColor,
     bgImgSrc,
     videoSrc,
+    posterSrc,
   },
 }) => {
   const bp500 = useMediaQuery("(min-width: 500px)");
@@ -108,7 +109,7 @@ const Video = ({
           },
         }}
       >
-        <video controls>
+        <video controls poster={`/images/${posterSrc}`}>
           <source src={`/videos/${videoSrc}`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
